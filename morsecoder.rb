@@ -1,9 +1,11 @@
 #!/usr/bin/ruby
 # warn_indent: true
 
+#
 # MorseCoder, a Morse Code Converter
 # Copyright (C) 2019-2020 Toni Helminen
 # GPLv3
+#
 
 module MorseCoder
   NAME 	      = "MorseCoder 1.01"
@@ -89,16 +91,12 @@ module MorseCoder
   end
 
   def MorseCoder.help
-    puts "# Help MorseCoder"
-    puts "Usage: > MorseCoder.rb [OPT]?"
-    puts ""
-    puts "## Options"
-    puts "help        This Help"
-    puts "version     Show version"
-    puts "tests       Unittests"
-    puts "examples    Examples"
-    puts "morse [STR] Morse code -> Text"
-    puts "text [STR]  Text -> Morse code"
+    puts "--help        This Help"
+    puts "--version     Show version"
+    puts "--examples    Examples"
+    puts "--tests       Unittests"
+    puts "-morse [STR]  Morse code -> Text"
+    puts "-text [STR]   Text -> Morse code"
   end
 
   def MorseCoder.one_case str
@@ -126,14 +124,14 @@ module MorseCoder
   def MorseCoder.main
     len = ARGV.length
     case ARGV[0]
-    when "version"  then  puts MorseCoder.version
-    when "examples" then  MorseCoder.examples
-    when "tests"    then  MorseCoder.unit_tests
-    when "help"     then  MorseCoder.help
-    when "morse"    then
+    when "--version"  then  puts MorseCoder.version
+    when "--examples" then  MorseCoder.examples
+    when "--tests"    then  MorseCoder.unit_tests
+    when "--help"     then  MorseCoder.help
+    when "-morse"    then
       str = len ? ARGV[1] : ""
       puts MorseCoder.morse(str)
-    when "text"     then
+    when "-text"     then
       str = len ? ARGV[1] : ""
       puts MorseCoder.text(str)
     else
